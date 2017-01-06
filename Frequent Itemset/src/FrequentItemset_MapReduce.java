@@ -42,6 +42,7 @@ import org.apache.hadoop.mapred.TextInputFormat;
 import org.apache.hadoop.mapred.TextOutputFormat;
 
 public class FrequentItemset_MapReduce {
+	
 	static double s = 0.0;
 	static int total = 0;
 	static int partition = 1;
@@ -62,10 +63,12 @@ public class FrequentItemset_MapReduce {
 			}
 		}
 		return true;
+		
 	}
 
 	public static class CandidateItemsetMapper extends MapReduceBase
 			implements Mapper<LongWritable, Text, Text, IntWritable> {
+		
 		@Override
 		public void map(LongWritable arg0, Text value, OutputCollector<Text, IntWritable> output, Reporter arg3)
 				throws IOException {
@@ -226,6 +229,7 @@ public class FrequentItemset_MapReduce {
 			}
 			return result;
 		}
+		
 	}
 
 	public static class CandidateItemsetReducer extends MapReduceBase
